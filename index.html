@@ -3,67 +3,161 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zien Property Post Generator — 20 ประเภท (ใหม่)</title>
+  <title>Zien Property Post Generator — Navy Edition</title>
+  
+  <!-- เพิ่ม Favicon และไอคอนต่างๆ -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+  <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+  
+  <!-- เพิ่ม Meta tags สำหรับ social media -->
+  <meta property="og:title" content="Zien Property Post Generator">
+  <meta property="og:description" content="เครื่องมือสร้างโพสต์อสังหาฯ อย่างเซียน">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://i.postimg.cc/8PBD8MtN/Logo-Zien-Blue.png">
+  
   <style>
+    :root{
+      --navy-900:#0b1220;
+      --navy-800:#0f1a33;
+      --navy-700:#102246;
+      --navy-600:#183062;
+      --navy-500:#274681;
+      --navy-400:#3c5aa0;
+      --blue-300:#6ea8ff;
+      --mint:#b7f0e3;
+      --sky:#cfe4ff;
+      --paper:#ffffff;
+      --ink:#0f172a;
+      --line:#e5e7eb;
+      --shadow:0 22px 50px rgba(10,20,40,.20);
+    }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto;min-height:100vh;background:linear-gradient(135deg,#0ea5e9,#6366f1);padding:20px}
-    .container{max-width:1200px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.12)}
-    .header{background:linear-gradient(135deg,#111827,#1f2937);color:#fff;padding:28px;text-align:center}
-    .header h1{font-size:24px;margin-bottom:8px}
-    .header p{opacity:.85}
+    html,body{height:100%}
+    body{
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans Thai",sans-serif;
+      background: radial-gradient(1200px 600px at 10% 0%, var(--navy-600) 0%, var(--navy-800) 45%, var(--navy-900) 100%);
+      color:var(--ink);
+      padding:22px;
+    }
+    .container{
+      max-width:1200px;margin:0 auto;background:linear-gradient(180deg,#ffffffee,#fffffffd);
+      border-radius:22px;box-shadow:var(--shadow);overflow:hidden;
+      animation:cardIn .6s ease both;
+    }
+    @keyframes cardIn{from{opacity:0;transform:translateY(12px) scale(.995)} to{opacity:1;transform:translateY(0) scale(1)}}
+    .header{
+      background:linear-gradient(135deg,var(--navy-700),var(--navy-500));
+      color:#fff;padding:28px 28px 26px;text-align:center;position:relative;overflow:hidden
+    }
+    .header:after{
+      content:"";position:absolute;inset:-40% -20% auto -20%;height:180%;
+      background:radial-gradient(600px 200px at 50% -10%, rgba(183,240,227,.25), transparent 60%);
+      pointer-events:none;filter:blur(6px);
+      animation:glow 6s ease-in-out infinite alternate;
+    }
+    @keyframes glow{from{opacity:.35;transform:translateY(0)} to{opacity:.9;transform:translateY(8px)}}
+    .header h1{font-size:26px;margin-bottom:6px;letter-spacing:.2px}
+    .header p{opacity:.92}
     .main{display:flex;min-height:80vh}
-    .left{flex:1;padding:24px;background:#f8fafc}
-    .right{flex:1;padding:24px;border-left:3px solid #eef2ff;background:#fff}
-    .section-title{font-weight:800;color:#111827;border-bottom:2px solid #e5e7eb;padding-bottom:8px;margin-bottom:14px}
+    .left{flex:1;padding:22px;background:#f7f9ff}
+    .right{flex:1;padding:22px;background:#fff;border-left:3px solid #eef2ff}
+    .section-title{
+      font-weight:800;color:var(--navy-700);
+      border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:14px;
+      display:flex;align-items:center;gap:8px
+    }
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-    .type-btn{border:2px solid #e5e7eb;border-radius:12px;padding:10px;text-align:center;cursor:pointer;background:#fff;font-weight:600}
-    .type-btn:hover{border-color:#60a5fa;background:#eff6ff}
-    .type-btn.active{background:#2563eb;color:#fff;border-color:#2563eb}
+    .type-btn{
+      border:2px solid var(--line);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;background:#fff;font-weight:700;
+      transition:transform .15s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow:0 0 0 rgba(0,0,0,0);
+    }
+    .type-btn:hover{border-color:var(--navy-400);background:#f0f6ff;transform:translateY(-1px);box-shadow:0 8px 22px rgba(39,70,129,.12)}
+    .type-btn.active{background:linear-gradient(135deg,var(--navy-600),var(--navy-500));color:#fff;border-color:transparent;transform:translateY(-1px)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .form-group{margin-bottom:12px}
-    label{display:block;margin-bottom:6px;font-weight:600;color:#334155;font-size:14px}
-    input,select,textarea{width:100%;border:2px solid #e5e7eb;border-radius:10px;padding:10px;font-size:14px;background:#fff}
-    input:focus,select:focus,textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
-    .dyn{margin-top:16px;padding-top:12px;border-top:2px solid #e5e7eb}
-    .btn{width:100%;padding:12px;border:none;border-radius:12px;color:#fff;font-weight:700;cursor:pointer}
-    .btn-generate{background:linear-gradient(135deg,#10b981,#059669);margin-top:10px}
-    .btn-copy{background:linear-gradient(135deg,#f59e0b,#d97706);margin-top:10px}
-    .preview-title{font-weight:800;text-align:center;margin-bottom:10px}
-    .preview{border:2px solid #e5e7eb;background:#f9fafb;border-radius:14px;padding:16px;min-height:420px;white-space:pre-wrap;line-height:1.6}
-    .warn{background:#fff7ed;border:2px solid #fdba74;padding:12px;border-radius:10px;margin-bottom:10px}
+    label{display:block;margin-bottom:6px;font-weight:700;color:var(--navy-700);font-size:14px}
+    input,select,textarea{
+      width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 12px;font-size:14px;background:#fff;
+      transition:border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+    }
+    input:focus,select:focus,textarea:focus{
+      outline:none;border-color:var(--navy-400);box-shadow:0 0 0 4px rgba(108,141,233,.18);transform:translateY(-1px)
+    }
+    textarea{min-height:84px;resize:vertical}
+    .dyn{margin-top:16px;padding-top:12px;border-top:2px solid var(--line)}
+    .btn{
+      width:100%;padding:13px 14px;border:none;border-radius:14px;color:#fff;font-weight:800;cursor:pointer;letter-spacing:.2px;
+      transition:transform .12s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-generate{background:linear-gradient(135deg,#1fb6ff,#1a56db);margin-top:10px;box-shadow:0 12px 28px rgba(31,182,255,.22)}
+    .btn-generate:hover{filter:brightness(1.03);box-shadow:0 16px 34px rgba(31,182,255,.28)}
+    .btn-copy{background:linear-gradient(135deg,#22c55e,#16a34a);margin-top:10px;box-shadow:0 12px 28px rgba(34,197,94,.22)}
+    .btn-copy:hover{filter:brightness(1.03);box-shadow:0 16px 34px rgba(34,197,94,.28)}
+    .preview-title{font-weight:900;text-align:center;margin-bottom:10px;color:var(--navy-700)}
+    .preview{
+      border:2px solid var(--line);background:linear-gradient(180deg,#fbfdff,#ffffff);
+      border-radius:16px;padding:16px;min-height:440px;white-space:pre-wrap;line-height:1.65;font-size:15px;
+      animation:softFade .4s ease both;
+    }
+    @keyframes softFade{from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)}}
+    .warn{background:#fff7ed;border:2px solid #fdba74;padding:12px;border-radius:12px;margin-bottom:10px;animation:softFade .4s .05s ease both}
     .warn h4{color:#9a3412;margin-bottom:6px}
-    .highlight{background:linear-gradient(120deg,#a7f3d0,#bfdbfe);padding:2px 6px;border-radius:6px}
-    @media(max-width:900px){.main{flex-direction:column}}
+    .highlight{background:linear-gradient(120deg, var(--mint), var(--sky));padding:2px 6px;border-radius:8px}
+    .hint{font-size:12px;color:#64748b;margin-top:4px}
+    @media(max-width:980px){.main{flex-direction:column}.form-row{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1>🏗️ Zien Property Post Generator — 20 ประเภท (สร้างใหม่)</h1>
-      <p>รองรับประเภททรัพย์ตามรายการที่คุณให้ครบถ้วน</p>
-    </div>
+        <img src="https://i.postimg.cc/8PBD8MtN/Logo-Zien-Blue.png" alt="Zien Property Logo" style="max-height: 80px; margin-bottom: 10px;"> 
+        <h1>Zien Property Post Generator</h1>
+        <p>เครื่องมือสร้างโพสต์อสังหาฯ อย่างเซียน</p>
+        </div>
+        
+
     <div class="main">
       <div class="left">
         <div class="section-title">📝 เลือกประเภททรัพย์</div>
         <div class="grid" id="typeGrid"></div>
 
-        <div class="form-group" style="margin-top:16px">
-          <label>ทำเล/ย่าน</label>
-          <input id="location" placeholder="เช่น ประชาอุทิศ-ทุ่งครุ, บางนา, เชียงใหม่ โซนเหนือ">
+        <div class="section-title" style="margin-top:16px">📍 ข้อมูลพื้นฐาน</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>ทำเล/ย่าน</label>
+            <input id="location" placeholder="เช่น บางนา-ตราด กม.10 / เชียงใหม่ โซนเหนือ">
+          </div>
+          <div class="form-group">
+            <label>ราคาขาย/ค่าเช่า (ระบุหน่วย)</label>
+            <input id="price" placeholder="เช่น ขาย 6,900,000 บ. / เช่า 35,000 บ./ด.">
+          </div>
         </div>
 
-        <div class="form-group">
-          <label>ราคาขาย/ค่าเช่า (ระบุหน่วย)</label>
-          <input id="price" placeholder="เช่น ขาย 6,900,000 บ. หรือ เช่า 35,000 บ./ด.">
+        <div class="form-row">
+          <div class="form-group">
+            <label>รหัสทรัพย์</label>
+            <input id="propertyId" placeholder="เช่น ZTK001">
+          </div>
+          <div class="form-group">
+            <label>ลิงก์ Google Map</label>
+            <input id="mapLink" placeholder="https://maps.google.com/...">
+          </div>
         </div>
 
-        <div class="form-group">
-          <label>รหัสทรัพย์</label>
-          <input id="propertyId" placeholder="เช่น ZTK001">
-        </div>
-
-        <div class="form-group">
-          <label>ลิงก์ Google Map</label>
-          <input id="mapLink" placeholder="https://maps.google.com/...">
+        <div class="form-row">
+          <div class="form-group">
+            <label>ชื่อเซลล์ / ผู้ดูแลทรัพย์</label>
+            <input id="agentName" placeholder="เช่น คุณเกรท / คุณกุ้ง">
+          </div>
+          <div class="form-group">
+            <label>เบอร์โทร</label>
+            <input id="agentPhone" placeholder="เช่น 08x-xxx-xxxx" pattern="^[0-9+()\-\s]{8,}$" title="กรอกเบอร์โทรให้ถูกต้อง">
+            <div class="hint">รองรับตัวเลข + เครื่องหมายทั่วไป เช่น 081-234-5678, +66 81 234 5678</div>
+          </div>
         </div>
 
         <div class="form-group">
@@ -89,17 +183,43 @@
   </div>
 
   <script>
-    // 20 ประเภทตามที่ผู้ใช้ระบุ
+    // ===== ประเภททรัพย์ (แยก ทาวน์เฮ้าส์ & ทาวน์โฮม) =====
     const propertyTypeOrder = [
-      'warehouse','condo','townhouse','land','industrialEstate','detachedHouse','semiDetached',
+      'warehouse','condo','townhouse','townhome','land','industrialEstate','detachedHouse','semiDetached',
       'vacationHome','farm','shop','resort','factory','hotel','farmPlot','orchard','mall',
       'apartment','officeBuilding','shophouse','landWithBuilding'
     ];
 
+    // เพิ่มอิโมจิสำหรับแต่ละประเภททรัพย์
+    const typeIcons = {
+      warehouse: '🏗️',
+      condo: '🏢',
+      townhouse: '🏠',
+      townhome: '🏠',
+      land: '🌾',
+      industrialEstate: '🏗️',
+      detachedHouse: '🏡',
+      semiDetached: '🏘️',
+      vacationHome: '🏖️',
+      farm: '🚜',
+      shop: '🏪',
+      resort: '🏨',
+      factory: '⚙️',
+      hotel: '🏨',
+      farmPlot: '🌾',
+      orchard: '🌳',
+      mall: '🏬',
+      apartment: '🏢',
+      officeBuilding: '🏢',
+      shophouse: '🏪',
+      landWithBuilding: '🏗️'
+    };
+
     const typeLabels = {
       warehouse:'โกดัง',
       condo:'คอนโดมิเนียม',
-      townhouse:'ทาวน์เฮ้าส์ / ทาวน์โฮม',
+      townhouse:'ทาวน์เฮ้าส์',
+      townhome:'ทาวน์โฮม',
       land:'ที่ดิน',
       industrialEstate:'นิคมอุตสาหกรรม',
       detachedHouse:'บ้านเดี่ยว',
@@ -119,7 +239,19 @@
       landWithBuilding:'ที่ดิน พร้อมสิ่งปลูกสร้าง'
     };
 
-    // คอนฟิกฟิลด์ของแต่ละประเภท
+    // ===== คอนฟิกฟิลด์แต่ละประเภท =====
+    const baseTownFields = [
+      {id:'projectName',label:'ชื่อโครงการ (ถ้ามี)',type:'text'},
+      {id:'landSize',label:'ขนาดที่ดิน (ตร.วา)',type:'number',ph:'20'},
+      {id:'usableArea',label:'พื้นที่ใช้สอย (ตร.ม.)',type:'number',ph:'120'},
+      {id:'unitType',label:'ลักษณะยูนิต',type:'select',options:['หัวแถว','กลางแถว','ท้ายแถว']},
+      {id:'floors',label:'จำนวนชั้น',type:'select',options:['2','3']},
+      {id:'bedrooms',label:'ห้องนอน',type:'number',ph:'3'},
+      {id:'bathrooms',label:'ห้องน้ำ',type:'number',ph:'2'},
+      {id:'parking',label:'ที่จอดรถ (คัน)',type:'select',options:['1','2']},
+      {id:'condition',label:'สภาพบ้าน',type:'select',options:['ใหม่','มือสอง','ต้องรีโนเวท']}
+    ];
+
     const configs = {
       warehouse:{name:typeLabels.warehouse, fields:[
         {id:'landSize',label:'ขนาดที่ดิน (ตร.วา/ไร่)',type:'text',ph:'200 ตร.วา หรือ 2-0-0 ไร่'},
@@ -142,16 +274,11 @@
         {id:'view',label:'วิวจากห้อง',type:'select',options:['เมือง','สวน','สระ','ถนน','แม่น้ำ']},
         {id:'condition',label:'สภาพห้อง',type:'select',options:['ใหม่','มือสอง','ต้องรีโนเวท']}
       ]},
-      townhouse:{name:typeLabels.townhouse, fields:[
-        {id:'projectName',label:'ชื่อโครงการ (ถ้ามี)',type:'text'},
-        {id:'landSize',label:'ขนาดที่ดิน (ตร.วา)',type:'number',ph:'20'},
-        {id:'usableArea',label:'พื้นที่ใช้สอย (ตร.ม.)',type:'number',ph:'120'},
-        {id:'unitType',label:'ลักษณะยูนิต',type:'select',options:['หัวแถว','กลางแถว','ท้ายแถว']},
-        {id:'floors',label:'จำนวนชั้น',type:'select',options:['2','3']},
-        {id:'bedrooms',label:'ห้องนอน',type:'number',ph:'3'},
-        {id:'bathrooms',label:'ห้องน้ำ',type:'number',ph:'2'},
-        {id:'parking',label:'ที่จอดรถ (คัน)',type:'select',options:['1','2']},
-        {id:'condition',label:'สภาพบ้าน',type:'select',options:['ใหม่','มือสอง','ต้องรีโนเวท']}
+      townhouse:{name:typeLabels.townhouse, fields:baseTownFields},
+      townhome:{name:typeLabels.townhome, fields:[
+        ...baseTownFields,
+        {id:'commonArea',label:'พื้นที่ส่วนกลางโครงการ',type:'select',options:['ครบ (คลับเฮาส์/สระ/ฟิตเนส)','พื้นฐาน','ไม่มี']},
+        {id:'ceiling',label:'เพดานสูง (ม.)',type:'number',ph:'2.8'}
       ]},
       land:{name:typeLabels.land, fields:[
         {id:'landSize',label:'ขนาดที่ดิน (ตร.วา/ไร่)',type:'text',ph:'100 ตร.วา หรือ 2-1-50 ไร่'},
@@ -301,13 +428,13 @@
       ]}
     };
 
-    // สร้างปุ่มประเภท
+    // ===== UI สร้างปุ่มประเภท =====
     const typeGrid = document.getElementById('typeGrid');
     propertyTypeOrder.forEach(key=>{
       const div = document.createElement('div');
       div.className = 'type-btn';
       div.dataset.type = key;
-      div.textContent = typeLabels[key];
+      div.innerHTML = `${typeIcons[key]} ${typeLabels[key]}`;
       typeGrid.appendChild(div);
     });
 
@@ -325,6 +452,7 @@
       selectedType = btn.dataset.type;
       renderDynamic();
       autoGen();
+      preview.scrollIntoView({behavior:'smooth',block:'start'});
     });
 
     function fieldHTML(f){
@@ -354,7 +482,7 @@
     }
 
     document.getElementById('btnGen').addEventListener('click', autoGen);
-    document.addEventListener('input', debounce(autoGen, 400));
+    document.addEventListener('input', debounce(autoGen, 350));
 
     function collect(){
       const data = {
@@ -365,6 +493,8 @@
         propertyId: gv('propertyId'),
         mapLink: gv('mapLink'),
         special: gv('specialFeatures'),
+        agentName: gv('agentName'),
+        agentPhone: gv('agentPhone'),
         fields: {}
       };
       if(selectedType){
@@ -381,6 +511,8 @@
       if(!d.location) miss.push('ทำเล/ย่าน');
       if(!d.price) miss.push('ราคาขาย/ค่าเช่า');
       if(!d.mapLink) miss.push('ลิงก์ Google Map');
+      if(!d.agentName) miss.push('ชื่อเซลล์/ผู้ดูแลทรัพย์');
+      if(!d.agentPhone) miss.push('เบอร์โทร');
       if(selectedType){
         configs[selectedType].fields.forEach(f=>{
           if(!d.fields[f.id]) miss.push(f.label);
@@ -411,14 +543,16 @@
         case 'detachedHouse':
         case 'semiDetached':
         case 'townhouse':
+        case 'townhome':
           s += `**${n} ${d.fields.floors||'[จำนวนชั้น]'} ชั้น ทำเล${d.location||'[ทำเล]'} ${d.fields.projectName? 'โครงการ '+d.fields.projectName : ''}**\n\n`;
           if(d.fields.landSize) s+=`🏡 ที่ดิน: ${d.fields.landSize} ตร.วา\n`;
           if(d.fields.usableArea) s+=`📐 ใช้สอย: ${d.fields.usableArea} ตร.ม.\n`;
           if(d.fields.bedrooms) s+=`🛏️ ห้องนอน: ${d.fields.bedrooms}\n`;
           if(d.fields.bathrooms) s+=`🚿 ห้องน้ำ: ${d.fields.bathrooms}\n`;
           if(d.fields.parking) s+=`🚗 จอดรถ: ${d.fields.parking}\n`;
-          if(d.fields.condition) s+=`🏠 สภาพ: ${d.fields.condition}\n`;
           if(d.fields.unitType) s+=`🏷️ ยูนิต: ${d.fields.unitType}\n`;
+          if(d.type==='townhome' && d.fields.commonArea) s+=`🏘️ ส่วนกลาง: ${d.fields.commonArea}\n`;
+          if(d.type==='townhome' && d.fields.ceiling) s+=`📏 เพดานสูง: ${d.fields.ceiling} ม.\n`;
           break;
 
         case 'land':
@@ -506,7 +640,6 @@
           break;
 
         default:
-          // fallback แสดงทุกฟิลด์ที่กรอก
           Object.entries(d.fields).forEach(([k,v])=>{ if(v) s+=`• ${labelOf(k)}: ${v}\n`; });
       }
 
@@ -522,11 +655,15 @@
         ? `✨ <span class="highlight">โอกาสทองสำหรับ${name} ทำเลเด่นย่าน${d.location}</span> ✨\n\n`
         : `✨ <span class="highlight">โอกาสทองสำหรับ${name} ทำเลดี</span> ✨\n\n`;
 
+      // สรุป
       p += createSummary(d);
+
+      // ราคา + รหัส + ที่ตั้ง
       p += d.price ? `💰 ราคา/ค่าเช่า: **${d.price}**\n\n` : `💰 ราคา/ค่าเช่า: **[กรุณาใส่ราคา/ค่าเช่าและหน่วย]**\n\n`;
       p += `รหัสทรัพย์: **${d.propertyId || 'ZTK[ใส่รหัส]'}**\n\n`;
       p += d.mapLink ? `📍 ที่ตั้ง: ${d.mapLink}\n\n` : `📍 ที่ตั้ง: **[กรุณาใส่ลิงก์ Google Map]**\n\n`;
 
+      // สถานที่ใกล้เคียง (placeholder)
       p += `สถานที่ใกล้เคียง (ประมาณ):\n`;
       p += `- สถานศึกษา: [ชื่อโรงเรียน] ([ระยะทาง] กม.)\n`;
       p += `- ห้าง/ตลาด: [ชื่อห้าง/ตลาด] ([ระยะทาง] กม.)\n`;
@@ -534,6 +671,7 @@
       p += `- การเดินทาง: [สถานี BTS/MRT/ทางด่วน] ([ระยะทาง] กม.)\n`;
       p += `- สถานที่สำคัญ: [วัด/แลนด์มาร์ก] ([ระยะทาง] กม.)\n\n`;
 
+      // CTA ปรับตามคีย์เวิร์ด
       if(d.special && (d.special.includes('ร้อน') || d.special.includes('หลุดจอง'))){
         p += `⚡ **ทรัพย์ร้อน! โอกาสอาจไม่รอ นัดชมด่วน** ⚡\n\n`;
       } else if(d.special && d.special.includes('ราคาพิเศษ')){
@@ -542,6 +680,13 @@
         p += `📱 **สนใจนัดชม/สอบถามเพิ่มเติม ติดต่อเรา**\n\n`;
       }
 
+      // ช่องทางติดต่อ (ชื่อเซลล์ + เบอร์)
+      if(d.agentName || d.agentPhone){
+        p += `👤 ผู้ดูแลทรัพย์: **${d.agentName || '[ชื่อเซลล์]'}**  `;
+        p += `📞 เบอร์: **${d.agentPhone || '[เบอร์โทร]'}**\n\n`;
+      }
+
+      // แฮชแท็ก
       const cleanLoc = (d.location || 'ทำเลดี').replace(/[-\s]/g,'');
       const cleanType = name.replace(/\s/g,'');
       let tags = `#${cleanType}${cleanLoc} #ขาย${cleanType}${cleanLoc} `;
@@ -552,9 +697,11 @@
       tags += `#${cleanLoc}${cleanType} #ZienProperty #เซียนอสังหา #บริการมืออาชีพ\n\n`;
       p += tags;
 
+      // ฟุตเตอร์แบรนด์
       p += `> เยี่ยมชมผลงานและทรัพย์อื่นๆ ของเรา:\n`;
-      p += `> https://www.facebook.com/zionthonburi/\n\n`;
+      p += `> https://www.facebook.com/zienproperty.co\n\n`;
       p += `"Zien Property บริการครบวงจร (One Stop Service) ตั้งแต่ให้คำปรึกษา ประเมินราคา จัดหาสินเชื่อ จนถึงวันโอน"`;
+      p += `"ใครๆ ก็ฝากขายกับเซียนอสังหาฯ"`;
 
       return p;
     }
@@ -585,8 +732,8 @@
       navigator.clipboard.writeText(txt).then(()=>{
         const b=document.getElementById('btnCopy');
         const t=b.textContent; b.textContent='✅ คัดลอกแล้ว!';
-        b.style.background='linear-gradient(135deg,#10b981,#059669)';
-        setTimeout(()=>{ b.textContent=t; b.style.background='linear-gradient(135deg,#f59e0b,#d97706)'; },1800);
+        b.style.filter='brightness(1.08)';
+        setTimeout(()=>{ b.textContent=t; b.style.filter=''; },1500);
       }).catch(()=>alert('คัดลอกไม่สำเร็จ โปรดเลือกและคัดลอกเอง'));
     });
 
